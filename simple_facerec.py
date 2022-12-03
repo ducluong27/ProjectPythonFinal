@@ -21,7 +21,7 @@ class SimpleFacerec:
         # Load Images
         images_path = glob.glob(os.path.join(images_path, "*.*"))
 
-        length=format(len(images_path))
+        print("{} encoding images found.".format(len(images_path)))
 
         # Store image encoding and names
         for img_path in images_path:
@@ -38,7 +38,7 @@ class SimpleFacerec:
             self.known_face_encodings.append(img_encoding)
             self.known_face_names.append(filename)
         print("Encoding images loaded")
-        return length
+        return format(len(images_path))
     def detect_known_faces(self, frame):
         try:
             # print(np.shape(frame))

@@ -1,4 +1,5 @@
 import cv2
+import pandas as pd
 import os
 from datetime import datetime
 from simple_facerec import SimpleFacerec
@@ -8,6 +9,7 @@ import openpyxl
 sfr = SimpleFacerec()
 #sfr.load_encoding_images("images/")
 length = sfr.load_encoding_images("images/")
+print(length)
 # Load Camera
 cap = cv2.VideoCapture(0)
 list_detail=[]
@@ -62,6 +64,8 @@ while True:
                 print(input_detail)
                 list_detail=[]
                 print(list_detail)
+        else:
+            break
     cv2.imshow("Frame", frame)
     output_excel_path='./DiemDanh.xlsx'
     if os.path.isfile(output_excel_path):
